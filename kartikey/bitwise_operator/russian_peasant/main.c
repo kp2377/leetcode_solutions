@@ -19,16 +19,23 @@
 
 // Russian peasant
 int russianPeasant(int a, int b);
-int main(){
+//kill Kth bit in an integer
+int turnOffK(int n, int k);
+int main()
+{
     
     
     int first = 0, second=0, result=0;
-    printf("Give the first number:");
-    scanf("%d",&first);
-    printf("Give the second number:");
-    scanf("%d",&second);
-    result = russianPeasant(first,second);
-    printf("The result is %d\n", result);
+//    printf("Give the first number:");
+//    scanf("%d",&first);
+//    printf("Give the second number:");
+//    scanf("%d",&second);
+//    result = russianPeasant(first,second);
+//    printf("The result is %d\n", result);
+    
+    printf("The turn OFF Kth number\n");
+    result = turnOffK(10,2);
+    printf("result is %d\n", result);
 }
 
 int russianPeasant(int a, int b)
@@ -42,4 +49,11 @@ int russianPeasant(int a, int b)
         b = b>>1;
     }
     return res;
+}
+
+int turnOffK(int n, int k)
+{
+    if(k<0)
+        return n;
+    return (~(1<<(k-1)) & n);
 }
